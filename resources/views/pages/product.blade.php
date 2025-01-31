@@ -88,8 +88,15 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Harga</label>
-                                <input type="text" class="form-control" name="price" id="price"
+                                <input type="number" class="form-control" name="price" id="price"
                                     placeholder="Masukkan Harga">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Stock</label>
+                                <input type="number" class="form-control" name="stock" id="stock"
+                                    placeholder="Masukkan Stock">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -147,8 +154,15 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Harga</label>
-                                <input type="text" class="form-control" name="price" id="price"
+                                <input type="number" class="form-control" name="price" id="price"
                                     placeholder="Masukkan Harga">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Stock</label>
+                                <input type="number" class="form-control" name="stock" id="stock"
+                                    placeholder="Masukkan Stock">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -254,6 +268,7 @@
             var productName = $(this).find("#product_name").val();
             var productCategory = $(this).find("#category_id").val();
             var productPrice = $(this).find("#price").val();
+            var productStock = $(this).find("#stock").val();
             var productDesc = $(this).find("#product_description").val();
             var productImage = $(this).find("#product_image")[0].files[0];
 
@@ -284,6 +299,7 @@
                                 'category_id': productCategory,
                                 'product_name': productName,
                                 'price': productPrice,
+                                'stock': productStock,
                                 'product_image': imgUrl,
                                 'product_description': productDesc
                             },
@@ -291,6 +307,8 @@
                                 alert("Data Berhasil Ditambahkan");
 
                                 fetchProducts();
+
+                                $('input').val("");
 
                                 $("#btnCloseModalAdd").click();
                             },
@@ -314,6 +332,7 @@
             var productName = $(this).find("#product_name").val();
             var productCategory = $(this).find("#category_id").val();
             var productPrice = $(this).find("#price").val();
+            var productStock = $(this).find("#stock").val();
             var productDesc = $(this).find("#product_description").val();
             var productImage = $(this).find("#product_image")[0].files[0];
 
@@ -329,6 +348,7 @@
                         'category_id': productCategory,
                         'product_name': productName,
                         'price': productPrice,
+                        'price': productStock,
                         'product_description': productDesc
                     },
                     success: function (data) {
@@ -367,6 +387,7 @@
                                 'category_id': productCategory,
                                 'product_name': productName,
                                 'price': productPrice,
+                                'stock': productStock,
                                 'product_image': imgUrl,
                                 'product_description': productDesc
                             },
@@ -412,6 +433,7 @@
                 var productImage = data.product_image;
                 var productDesc = data.product_description;
                 var productPrice = data.price;
+                var productStock = data.stock;
 
                 var formEditContent = $("#formEditProduct");
 
@@ -420,6 +442,7 @@
                 formEditContent.find("#price").val(productPrice);
                 formEditContent.find("#product_description").val(productDesc);
                 formEditContent.find(".product_image").attr("src", productImage);
+                formEditContent.find("#stock").val(productStock);
 
                 $.ajax({
                     url: "{{ route('get-category') }}", // Route for categories
