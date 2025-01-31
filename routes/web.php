@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/product', [ProductController::class, 'index'])->name('product');
@@ -12,6 +13,7 @@ Route::get('/all-categories', [ProductController::class, 'getAllCategories'])->n
 Route::get('/all-products', [ProductController::class, 'getAllProducts'])->name('get-product');
 Route::get('/get-one-product', [ProductController::class, 'getOneProducts'])->name('get-one-product');
 Route::get('/stock', [StockController::class, 'index'])->name('stock');
+Route::get('/order', [OrderController::class, 'index'])->name('order');
 
 Route::post('/upload-image', [ProductController::class, 'uploadImageProduct'])->name('upload-image');
 Route::post('/add-product', [ProductController::class, 'store'])->name('store-product');
