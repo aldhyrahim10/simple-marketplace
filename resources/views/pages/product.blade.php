@@ -43,7 +43,7 @@
                                 </tr>
                             </thead>
                             <tbody id="productTableBody">
-
+                                
                             </tbody>
                         </table>
                     </div>
@@ -348,7 +348,7 @@
                         'category_id': productCategory,
                         'product_name': productName,
                         'price': productPrice,
-                        'price': productStock,
+                        'stock': productStock,
                         'product_description': productDesc
                     },
                     success: function (data) {
