@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\OrderRequest;
+use App\Models\Order;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 class OrderController extends Controller
 {
@@ -22,12 +27,26 @@ class OrderController extends Controller
         //
     }
 
+    public function getAllOrders(){
+        $orders = Order::with('product')->get();
+
+        return response()->json($orders);
+    }
+
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(OrderRequest $request)
     {
-        //
+        DB::transaction(function () use ($request) {
+            $validated = $request->validated();
+
+            Order::create($validated);
+        });
+
+        return response()->json([
+            'return' => true
+        ], 201);
     }
 
     /**
