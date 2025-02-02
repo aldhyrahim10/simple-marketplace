@@ -28,7 +28,7 @@ class OrderController extends Controller
     }
 
     public function getAllOrders(){
-        $orders = Order::with('product')->get();
+        $orders = Order::with('product')->orderBy('created_at', 'desc')->get();
 
         return response()->json($orders);
     }

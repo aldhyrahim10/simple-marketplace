@@ -71,7 +71,9 @@
                                 <input type="hidden" value="${product.id}" class="hdnProductID">
                                 ${product.id}</td>
                             <td>${product.product_name}</td>
-                            <td class="stock-now">${product.stock}</td>
+                            <td class="stock-now">
+                                ${product.stock}
+                            </td>
                             <td>
                                 <input type="number" class="form-control txtStock">    
                             </td>
@@ -101,7 +103,9 @@
         var itemContent = $(this).closest(".content-item");
 
         var productID = itemContent.find(".hdnProductID").val();
+
         var stockOld = parseInt(itemContent.find(".stock-now").html());
+
         var stockAdd = parseInt(itemContent.find(".txtStock").val());
 
         var totalStock = stockOld + stockAdd;
@@ -117,13 +121,14 @@
                 'stock': totalStock
             },
             success: function (data) {
-                alert("Data Berhasil DiUbah");
+                alert("Data Berhasil Diubah");
 
                 fetchProducts();
 
             },
             error: function (data) {
                 console.log("gagal");
+                alert("gagal");
             }
         })
     });

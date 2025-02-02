@@ -129,7 +129,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" id="btnCloseCheckout" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" id="btnCheckout">Pesan Sekarang</button>
             </div>
         </div>
@@ -308,6 +308,8 @@
                 },
                 success: function (response) {
                     alert("Pemesanan Berhasil");
+
+                    $("#btnCloseCheckout").click();
                 },
                 error: function (xhr, status, error) {
                     console.error("Gagal Menyimpan data:", error);

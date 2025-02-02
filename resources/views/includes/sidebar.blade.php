@@ -54,38 +54,14 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                <li class="nav-item">
+                    <a href="{{route("logout")}}" class="nav-link">
+                        <i class="nav-icon fas fa-power-off"></i>
                         <p>
-                            Menu
-                            <i class="right fas fa-angle-left"></i>
+                            Logout
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Sub Menu 1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Sub Menu 1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Sub Menu 1</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li> --}}
-
-
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

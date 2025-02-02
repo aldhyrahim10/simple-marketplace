@@ -79,7 +79,6 @@
                         <td>${order.product.product_name}</td>
                         <td>${order.total_item}</td>
                         <td>${order.total_price}</td>
-                        
                     </tr>
                 `;
                 });
